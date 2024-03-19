@@ -7,57 +7,12 @@
 - vengono istanziati almeno due oggetti ‘Movie’ e stampati a schermo i valori delle relative proprietà
 */ 
 //Modello è Movie
-class Movies {
-    public $title;
-    public $duration;
-    public $cast;
-    public $overview;
-    
-    function __construct($title,$duration,$cast,$overview)
-    {
-      //select an object property inside a class using the $this variable
-      //$this refers alwaysto an object
-      $this->title = $title;
-      $this->duration = $duration;
-      $this->cast = $cast;
-      $this->overview =$overview;
-    }
-    public function getCast()
-      //getter function
-      {
-          return $this->cast;
-      }
-  
 
-};
+require_once __DIR__ . '/app/Models/Movie.php';
+require_once __DIR__ .'/database/db.php';
 
 //Il modello movie ha dentro 2 istanze HarryPotter e Guardiani della galassia 
-$HarryPotter = new Movies("Harry Potter E il principe mezzosangue",120,[	
-    'Daniel Radcliffe',
-    'Rupert Grint',
-    'Emma Watson',
-    'Jim Broadbent',
-    'Helena Bonham Carter',
-    'Robbie Coltrane',
-    'Warwick Davis',
-    'Michael Gambon',
-    'Alan Rickman',
-    'Maggie Smith',
-    'Timothy Spall',
-    'David Thewlis',
-    'Julie Walters'],
-    "lorem ipsum dolor" );
-  
-$GuardianOfGalaxy = new Movies("Guardiani della galassia vol.2",100,['Chris Pratt',
-    'Zoe Saldaña',
-    'Dave Bautista',
-    'Vin Diesel',
-    'Bradley Cooper',
-    'Michael Rooker',
-    'Karen Gillan',
-    'Pom Klementieff',
-    'Sylvester Stallone',
-    'Kurt Russell'],"lorem ipsum dolor" );
+
 
 
 
@@ -100,7 +55,7 @@ $GuardianOfGalaxy->cast = [
 //var_dump($HarryPotter , $GuardianOfGalaxy);
 
   
-$movies = [$HarryPotter , $GuardianOfGalaxy] ;
+
   
 //var_dump($HarryPotter->getCast());
 //var_dump($GuardianOfGalaxy->getCast());
@@ -124,10 +79,10 @@ $movies = [$HarryPotter , $GuardianOfGalaxy] ;
       <a class="nav-link disabled" href="#"></a>
     </nav>
   </header>
-  <main>
+  <main class= "mt-5">
     <section>
       <div class="container">
-        <div class="row row-cols-1 row-cols-sm-3 g-3">
+        <div class="row row-cols-2 row-cols-lg-5 g-3">
           <?php foreach($movies as $movie) :?>  
             <div class="col">
                 <div class="card">
